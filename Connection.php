@@ -6,9 +6,15 @@ class Connection
     public $pdo;
     public function __construct()
     {
-        session_start();
-        $this->pdo= new PDO('mysql:server=localhost;dbname=crud','root','123456');
-        $this->pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        try {
+            session_start();
+            $this->pdo= new PDO('mysql:server=localhost;dbname=crud','root','123456');
+            $this->pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        }catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+
     }
     public function getStudentList(){
         $sql="select * from students ORDER BY student_id ASC";

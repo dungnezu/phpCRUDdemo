@@ -36,7 +36,7 @@ $students=$connection->getStudentList();
                 <td><?php echo $student['gender'];?></td>
                 <td> <a  href="<?php echo 'deletestudent.php?id=' . $student["student_id"] ?>" class="button button-red">Delete</a></td>
                 <td><a  href="<?php echo 'updatestudent.php?id=' . $student["student_id"] ?>" class="button button-blue">Edit</a></td>
-                <td><a href="<?php echo 'read-student-info.php?id=' . $student["student_id"] ?>" class="button button-green">View</a></td>
+                <td><a href="<?php echo 'view.php?id=' . $student["student_id"] ?>" class="button button-green">View</a></td>
             </tr>
             <?php endforeach; ?>
             </tbody>
